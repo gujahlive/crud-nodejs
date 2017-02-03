@@ -1,0 +1,32 @@
+
+<h1 class="text-center">{{title}}</h1>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Quantidade</th>
+            <th class="text-center">Preço</th>
+            <th class="text-center">Editar</th>
+            <th class="text-center">Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" ng-repeat="f in fruits">
+                <td>{{f.nome}}</td>
+                <td>{{f.quantidade}}</td>
+                <td>{{f.preco}}</td>
+                <td>
+                  <a style="color: gray;" href="#!/fruta/edit/{{f._id}}/{{f.nome}}/{{f.quantidade}}/{{f.preco}}">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                  </a>
+                </td>
+                <td>
+                  <a style="color: red;" href="#!/remove/{{f.nome}}" ng-click="remove();" >
+                    <i class="glyphicon glyphicon-remove"></i>
+                  </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,23 @@
+{
+  "name": "angular-testes",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Diego Leal <leal.banks@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "bootstrap": "^3.3.7",
+    "angular-route": "^1.6.1",
+    "angular-resource": "^1.6.1"
+  }
+}
