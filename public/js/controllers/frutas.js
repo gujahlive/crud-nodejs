@@ -45,14 +45,14 @@ app.controller('editController', function($scope, $location, $routeParams, $reso
 
 app.controller('newController', function($scope, $resource, $location) {
 	$scope.title = 'Cadastro de frutas';
-  var fruta = $resource('/fruta/cadastro');
+  var Fruta = $resource('/fruta/cadastro');
 
   $scope.save = function() {
     $scope.isSave = false;
     $scope.isError = false;
 
 		if($scope.nome && $scope.qnt && $scope.preco){
-			var fruta = new fruta();
+			var fruta = new Fruta();
 	    fruta.nome = $scope.nome.toLowerCase();
 	    fruta.quantidade = $scope.qnt;
 			fruta.preco = $scope.preco;
