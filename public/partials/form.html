@@ -6,18 +6,18 @@
     <form class="col-lg-4 col-md-offset-4" name="frutas" ng-submit="save();">
         <div class="form-group">
           <label for="fruit">Fruta</label>
-          <input id="fruit" class="form-control" type="text" required placeholder="Insira uma fruta" ng-model="nome">
+          <input id="fruit" class="form-control" type="text" required placeholder="Insira uma fruta" ng-model="fruta.nome">
         </div>
         <div class="form-group">
           <label for="qnt">Quantidade</label>
-          <input id="qnt" class="form-control input-small" type="number" required placeholder="quantidade" ng-model="qnt" min="1" step="1" max="99">
+          <input id="qnt" class="form-control input-small" type="number" required placeholder="quantidade" ng-model="fruta.quantidade" min="1" step="1" max="999">
         </div>
         <div class="form-group">
           <label for="preco">Preço</label>
-          <input id="preco" class="form-control" type="text" required placeholder="preço" ng-model="preco" pattern="[0-9,]+">
+          <input id="preco" class="form-control" type="text" required placeholder="preço" ng-model="fruta.preco" pattern="[0-9,]+">
         </div>
 
-        <button class="btn btn-primary pull-right" ng-disabled="frutas.$invalid">Save</button>
+        <button type="submit" class="btn btn-primary pull-right" ng-disabled="frutas.$invalid">Save</button>
     </form>
 </div>
 <br><br>
