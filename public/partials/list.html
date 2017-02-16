@@ -12,17 +12,17 @@
           </tr>
         </thead>
         <tbody>
-            <tr class="text-center" ng-repeat="f in fruits">
-                <td>{{f.nome}}</td>
-                <td>{{f.quantidade}}</td>
-                <td>{{f.preco}}</td>
+            <tr class="text-center" ng-repeat="fruit in fruits">
+                <td>{{fruit.nome}}</td>
+                <td>{{fruit.quantidade}}</td>
+                <td>{{fruit.preco}}</td>
                 <td>
-                  <a style="color: gray;" href="#!/fruta/edit/{{f._id}}/{{f.nome}}/{{f.quantidade}}/{{f.preco}}">
+                  <a style="color: gray;" href="#!/fruta/form/{{fruit._id}}">
                     <i class="glyphicon glyphicon-pencil"></i>
                   </a>
                 </td>
                 <td>
-                  <a style="color: red;" href="#!/remove/{{f.nome}}" ng-click="remove();" >
+                  <a style="color: red;" href="#!/remove/{{fruit._id}}" ng-click="remove();" >
                     <i class="glyphicon glyphicon-remove"></i>
                   </a>
                 </td>
