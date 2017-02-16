@@ -22,12 +22,17 @@ module.exports = function(app) {
       });
     },
 
+    getOneFruit: function(req, res) {
+      fruta.findOne({_id: req.params.id}, function(doc) {
+        res.json(doc);
+        console.log(doc);
+      });
+    },
+
     postUpdateFruit: function(req, res) {
       var doc = req.body;
       console.log(doc);
-
       fruta.update(doc);
-
     }
   };
 
