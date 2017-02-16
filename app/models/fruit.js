@@ -35,20 +35,11 @@ module.exports = function() {
     },
 
     find: function(query, callback) {
-
-      if(arguments.length > 1){
-        Model.find(query).exec().then(function(doc) {
-          callback(doc);
-        }, function(err) {
-          if(err) throw new Error('Erro a buscar fruta:\n' + err);
-        });
-      }else{
-        Model.find().exec().then(function(doc) {
-          callback(doc);
-        }, function(err) {
-          if(err) throw new Error('Erro a buscar fruta:\n' + err);
-        });
-      }
+      Model.find(query).exec().then(function(doc) {
+        callback(doc);
+      }, function(err) {
+        if(err) throw new Error('Erro a buscar fruta:\n' + err);
+      });
     },
 
     findOne: function(query, callback) {
