@@ -5,13 +5,13 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: '../partials/list.html',
         controller: 'listController'
     })
-    .when('/fruta/edit/:id/:nome/:quantidade/:preco', {
+    .when('/fruta/form/:id', {
         templateUrl: '../partials/form.html',
-        controller: 'editController'
+        controller: 'saveFruit'
     })
-    .when('/fruta/cadastro/new', {
+    .when('/fruta/form', {
         templateUrl: '../partials/form.html',
-        controller: 'newController'
+        controller: 'saveFruit'
     })
     .when('/fruta/remove/:id', {
         templateUrl: '../partials/list.html',
