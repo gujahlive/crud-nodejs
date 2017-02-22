@@ -51,8 +51,8 @@ module.exports = function() {
     },
 
     update: function(doc) {
-      Model.update({_id: doc.id}, {$set: {nome: doc.nome, quantidade: doc.quantidade, preco: doc.preco}}, function() {
-        console.log('Fruta atualizada com sucesso');
+      Model.update({_id: doc.id}, {$set: {nome: doc.nome, quantidade: doc.quantidade, preco: doc.preco}}).then(function(doc) {
+
       });
     }
   };
