@@ -3,7 +3,7 @@
 <br>
 <br>
 <div class="row">
-    <form class="col-lg-4 col-md-offset-4" name="frutas" ng-submit="save();">
+    <form novalidate class="col-lg-4 col-md-offset-4" name="frutas" ng-submit="save();">
         <div class="form-group">
           <label for="fruit">Fruta</label>
           <input id="fruit" class="form-control" type="text" required placeholder="Insira uma fruta" ng-model="fruta.nome">
@@ -17,22 +17,16 @@
           <input id="preco" class="form-control" type="text" required placeholder="preço" ng-model="fruta.preco" pattern="[0-9,]+">
         </div>
 
-        <button type="submit" class="btn btn-primary pull-right" ng-disabled="frutas.$invalid">Save</button>
+        <button type="submit" class="btn btn-primary pull-right" >Save</button>
     </form>
 </div>
-<br><br>
-<div ng-model="isSave" ng-show="isSave" class="row">
-  <div class="col-md-4 col-md-offset-4">
-    <div class="alert alert-success">
-      <p class="text-center"><strong>SUCESSO!</strong>{{message}}</p>
-    </div>
-  </div>
-</div>
 
-<div ng-model="isError" ng-show="isError" class="row">
-  <div class="col-md-4">
-    <div class="alert alert-danger">
-      <p class="text-center"><strong>ERRO!</strong>{{message}}</p>
+<br><br>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="alert" ng-class="{'alert-success': isSave, 'alert-danger': isError}" ng-show="triedSubmit">
+      <button type="button" data-dismiss="alert" class="close">&times;</button>
+      <p class="text-center"><strong>MESSAGE: {{message}}</strong></p>
     </div>
   </div>
 </div>

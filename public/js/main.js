@@ -5,11 +5,11 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: '../partials/list.html',
         controller: 'listController'
     })
-    .when('/fruta/form/:id', {
+    .when('/fruta/form/', {
         templateUrl: '../partials/form.html',
         controller: 'saveFruit'
     })
-    .when('/fruta/form', {
+    .when('/fruta/form/:id', {
         templateUrl: '../partials/form.html',
         controller: 'saveFruit'
     })
@@ -22,5 +22,5 @@ app.config(['$routeProvider', function($routeProvider) {
 
 //Inicializando do escopo global
 app.run(['$rootScope', function($rootScope) {
-  console.log('app.run');
+  console.debug('app.run');
 }]);
