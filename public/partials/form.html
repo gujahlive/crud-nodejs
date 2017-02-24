@@ -17,7 +17,7 @@
           <input id="preco" class="form-control" type="text" required placeholder="preço" ng-model="fruta.preco" pattern="[0-9,]+">
         </div>
 
-        <button type="submit" class="btn btn-primary pull-right" >Save</button>
+        <button type="submit" class="btn btn-primary" style="width: 100%" >Save</button>
     </form>
 </div>
 
@@ -26,7 +26,7 @@
   <div class="col-md-4 col-md-offset-4">
     <div class="alert" ng-class="{'alert-success': isSave, 'alert-danger': isError}" ng-show="triedSubmit">
       <button type="button" data-dismiss="alert" class="close">&times;</button>
-      <p class="text-center"><strong>MESSAGE: {{message}}</strong></p>
+      <p class="text-center"><strong>MESSAGE</strong><br>{{message}}</p>
     </div>
   </div>
 </div>
