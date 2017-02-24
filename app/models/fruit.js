@@ -29,8 +29,10 @@ module.exports = function() {
 
     save: function(doc) {
       fruta = new Model(doc);
-      fruta.save().then(function(doc) {
-
+      fruta.save().then(function(res) {
+        console.log('Fruta cadastrada com sucesso! => ', res);
+      }, function(err) {
+        if(err) throw new Error('Erro ao cadastrar uma fruta:\n', err);
       });
     },
 
@@ -51,8 +53,10 @@ module.exports = function() {
     },
 
     update: function(doc) {
-      Model.update({_id: doc.id}, {$set: {nome: doc.nome, quantidade: doc.quantidade, preco: doc.preco}}).then(function(doc) {
-
+      Model.update({_id: doc._id}, {$set: {nome: doc.nome, quantidade: doc.quantidade, preco: doc.preco}}).then(function(res) {
+        console.log('Documento atualizado com sucesso => ', res);
+      }, function(err) {
+        if(err) throw new Error('Error ao fazer atualização do doc:\n', err);
       });
     }
   };
