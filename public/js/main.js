@@ -11,7 +11,7 @@ app.config(['$routeProvider', function($routeProvider) {
     })
     .when('/fruta/form/:id', {
         templateUrl: '../partials/form.html',
-        controller: 'saveFruit'
+        controller: 'editFruit'
     })
     .when('/fruta/remove/:id', {
         templateUrl: '../partials/list.html',
