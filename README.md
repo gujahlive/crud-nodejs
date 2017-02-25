@@ -15,8 +15,8 @@ git clone https://github.com/diego-leal/crud-nodejs.git crud-nodejs
 #acessando o diretório do projeto
 cd ./crud-nodejs
 #instalando dependências
-npm run build
+npm run setup
 #executando projeto
 npm start
 ```
->Projeto desenvolvido para o estudo do AngularJs. Fiquem avontada para modifica-lo ao seu gosto.
+>Projeto desenvolvido para o estudo do AngularJs. Fiquem à vontade para modifica-lo como quiser.
