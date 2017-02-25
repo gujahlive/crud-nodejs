@@ -26,13 +26,11 @@ module.exports = function(app) {
 
     postUpdateFruit: function(req, res) {
       var doc = req.body.fruta;
-      console.log('DOC TO UPDATE => ', doc);
       fruta.update(doc);
     },
 
     removeLogicalFruit: function(req, res) {
       var _id = req.body.fruta;
-      console.log('ID REMOVE => ', _id);
       fruta.removeLogical(_id);
     }
   };
