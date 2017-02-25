@@ -43,10 +43,10 @@ app.controller('saveFruit', function($scope, $resource) {
   	    frutaCadastro.fruta = $scope.fruta;
         frutaCadastro.$save();
   	    $scope.isSave = true;
-        $scope.message = 'Fruta cadastrada com sucesso!';
+        $scope.message = $scope.fruta.nome + ' cadastrada com sucesso!';
   		}else{
   			$scope.isError = true;
-        $scope.message = 'Erro ao cadastrar fruta :('
+        $scope.message = 'Erro ao cadastrar ' + $scope.fruta.nome;
   		}
     };
 });
@@ -69,10 +69,10 @@ app.controller('editFruit', function($scope, $routeParams, $resource) {
       frutaResource.$save();
 
       $scope.isSave = true;
-      $scope.message = 'Fruta atualizada com sucesso.'
+      $scope.message = $scope.fruta.nome + ' atualizada com sucesso.';
     }else{
       $scope.isError = true;
-      $scope.message = 'Erro ao fazer atualização da fruta.'
+      $scope.message = 'Erro ao fazer atualização da ' + $scope.fruta.nome;
     }
   };
 });
