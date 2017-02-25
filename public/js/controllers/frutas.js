@@ -1,12 +1,31 @@
 var app = angular.module('main');
 
-app.controller('listController', function($scope, $http, $resource) {
+app.controller('listController', function($scope, $resource, $location) {
 	$scope.title = 'Lista de frutas';
   var FrutaResource = $resource('/fruta/busca');
 
   FrutaResource.query(function(res) {
     $scope.fruits = res;
   });
+
+  $scope.getAllFruits = function() {
+    var FrutaResource = $resource('/fruta/busca');
+    FrutaResource.query(function(res) {
+      $scope.fruits = res;
+    });
+  };
+
+  $scope.remove = function(id) {
+    var FrutaResource = $resource('/fruta/removeLogico'),
+      frutaResource = new FrutaResource();
+
+    frutaResource.fruta = id;
+    console.debug(frutaResource.fruta);
+    frutaResource.$save();
+    $scope.$emit('reload');
+  };
+
+  $scope.$on('reload', $scope.getAllFruits);
 
 });
 
@@ -58,6 +77,6 @@ app.controller('editFruit', function($scope, $routeParams, $resource) {
   };
 });
 
-app.controller('removeController', function($scope, $location, $routeParams) {
+app.controller('removeFruit', function($scope, $routeParams, $resource, $location) {
 
 });
