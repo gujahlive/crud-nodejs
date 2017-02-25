@@ -17,14 +17,14 @@
                 <td>{{fruit.quantidade}}</td>
                 <td>{{fruit.preco}}</td>
                 <td>
-                  <a style="color: gray;" href="#!/fruta/form/{{fruit._id}}">
+                  <a class="btn btn-xs btn-default" ng-href="#!/fruta/form/{{fruit._id}}">
                     <i class="glyphicon glyphicon-pencil"></i>
                   </a>
                 </td>
                 <td>
-                  <a style="color: red;" href="#!/remove/{{fruit._id}}" ng-click="remove();" >
+                  <button type="button" class="btn btn-xs btn-danger" ng-click="remove(fruit._id);" >
                     <i class="glyphicon glyphicon-remove"></i>
-                  </a>
+                  </button>
                 </td>
             </tr>
         </tbody>
