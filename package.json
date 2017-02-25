@@ -17,6 +17,7 @@
   },
   "scripts": {
     "setup": "npm install && bower install",
-    "start": "nodemon server.js"
+    "start-dev": "nodemon server.js",
+    "start": "node server.js"
   }
 }
