@@ -15,7 +15,7 @@ app.config(['$routeProvider', function($routeProvider) {
     })
     .when('/fruta/remove/:id', {
         templateUrl: '../partials/list.html',
-        controller: 'removeController'
+        controller: 'removeFruit'
     })
     .otherwise({redirectTo: '/'});
 }]);
