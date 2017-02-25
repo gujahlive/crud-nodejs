@@ -13,7 +13,7 @@ module.exports = function(app) {
       },
 
     getAllFruits: function(req, res) {
-      fruta.find({}, function(doc) {
+      fruta.find({ativo: true}, function(doc) {
         res.json(doc);
       });
     },
@@ -28,6 +28,12 @@ module.exports = function(app) {
       var doc = req.body.fruta;
       console.log('DOC TO UPDATE => ', doc);
       fruta.update(doc);
+    },
+
+    removeLogicalFruit: function(req, res) {
+      var _id = req.body.fruta;
+      console.log('ID REMOVE => ', _id);
+      fruta.removeLogical(_id);
     }
   };
 
