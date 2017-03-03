@@ -16,14 +16,14 @@
             <tr class="text-center" ng-repeat="fruit in fruits">
                 <td>{{fruit.nome}}</td>
                 <td>{{fruit.quantidade}}</td>
-                <td>{{fruit.preco}}</td>
+                <td>{{fruit.preco | currency}}</td>
                 <td>
                   <a class="btn btn-xs btn-default" ng-href="#!/fruta/form/{{fruit._id}}">
                     <i class="glyphicon glyphicon-pencil"></i>
                   </a>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-xs btn-danger" ng-click="remove(fruit._id);" >
+                  <button type="button" class="btn btn-xs btn-danger" ng-click="remove(fruit._id, $index);" >
                     <i class="glyphicon glyphicon-remove"></i>
                   </button>
                 </td>

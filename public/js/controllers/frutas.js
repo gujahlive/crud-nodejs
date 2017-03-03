@@ -15,7 +15,7 @@ app.controller('listController', function($scope, $resource, $location) {
     });
   };
 
-  $scope.remove = function(id) {
+  $scope.remove = function(id, index) {
     var FrutaResource = $resource('/fruta/removeLogico'),
       frutaResource = new FrutaResource();
 
@@ -23,6 +23,7 @@ app.controller('listController', function($scope, $resource, $location) {
     console.debug(frutaResource.fruta);
     frutaResource.$save();
     $scope.$emit('reload');
+    // $scope.fruits.splice(index, 1);
   };
 
   $scope.$on('reload', $scope.getAllFruits);
