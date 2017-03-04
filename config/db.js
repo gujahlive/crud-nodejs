@@ -8,7 +8,7 @@ module.exports = function(url) {
   });
 
   mongoose.connection.on('error', function(err) {
-    console.log('Error ao conectar com o mongo:\n ' + err);
+    console.log('Error ao conectar com o mongo:\n ', err);
   });
 
   process.on('SIGINT', function() {
@@ -17,5 +17,4 @@ module.exports = function(url) {
         process.exit(0);
     });
   });
-
 };
