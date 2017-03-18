@@ -1,39 +1,21 @@
 var app = angular.module('main');
 
-app.controller('listController', function($scope, $resource, $location) {
+app.controller('listController', function($scope, $location, frutaService) {
 	$scope.title = 'Lista de frutas';
-  var FrutaResource = $resource('/fruta/busca');
-
-  FrutaResource.query(function(res) {
-    $scope.fruits = res;
+	frutaService.get({}, function(frutas) {
+    $scope.fruits = frutas;
   });
 
-  $scope.getAllFruits = function() {
-    var FrutaResource = $resource('/fruta/busca');
-    FrutaResource.query(function(res) {
-      $scope.fruits = res;
-    });
-  };
-
   $scope.remove = function(id, index) {
-    var FrutaResource = $resource('/fruta/removeLogico'),
-      frutaResource = new FrutaResource();
-
-    frutaResource.fruta = id;
-    console.debug(frutaResource.fruta);
-    frutaResource.$save();
-    $scope.$emit('reload');
-    // $scope.fruits.splice(index, 1);
+    frutaService.remove(id);
+    $scope.fruits.splice(index, 1);
   };
-
-  $scope.$on('reload', $scope.getAllFruits);
 
 });
 
-app.controller('saveFruit', function($scope, $resource) {
+app.controller('saveFruit', function($scope, frutaService) {
     $scope.title = 'Cadastro de frutas';
-    var FrutaResource = $resource('/fruta/cadastro'),
-      frutaCadastro = new FrutaResource();
+		var frutaCadastro = frutaService.save();
 
     $scope.save = function() {
       $scope.triedSubmit = true;
@@ -52,7 +34,7 @@ app.controller('saveFruit', function($scope, $resource) {
     };
 });
 
-app.controller('editFruit', function($scope, $routeParams, $resource) {
+app.controller('editFruit', function($scope, $routeParams, frutaService) {
   $scope.title = 'Atualizar frutas';
   var FrutaResource = $resource('/fruta/busca/:id');
   FrutaResource.get({id: $routeParams.id}, function(res) {
@@ -60,8 +42,8 @@ app.controller('editFruit', function($scope, $routeParams, $resource) {
     $scope.fruta = res;
   });
 
-  FrutaResource = $resource('/fruta/edita');
-  frutaResource = new FrutaResource();
+
+  frutaResource = frutaService.set();
   $scope.save = function() {
     $scope.triedSubmit = true;
     if($scope.fruta.nome && $scope.fruta.quantidade && $scope.fruta.preco){
