@@ -1,6 +1,6 @@
 module.exports = function(app) {
-  var Model = app.models.fruit,
-      fruta = require('../models/mongoose.js')(Model);
+  var Schema = app.models.fruta,
+      fruta = require('../models/mongoose.js')(Schema);
 
   var HomeController = {
     postAddFruit: function(req, res) {
@@ -9,6 +9,7 @@ module.exports = function(app) {
         quantidade: req.body.fruta.quantidade,
         preco: req.body.fruta.preco.replace(',', '.')
       };
+      console.log('LOG SAVE FRUIT', doc);
 
       fruta.save(doc, function(err, res) {
         if(err) throw err;
@@ -20,7 +21,6 @@ module.exports = function(app) {
     getAllFruits: function(req, res) {
       fruta.find({ativo: true}, function(err, doc) {
         if(err) throw err;
-
         res.json(doc);
       });
     },
