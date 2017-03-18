@@ -3,7 +3,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('./db.js')('mongodb://localhost/fruteira');
 
-module.exports = function() {
+module.exports = ( function() {
     var app = express();
 
     //variaveis de ambiente
@@ -23,4 +23,4 @@ module.exports = function() {
         .into(app);
 
     return app;
-}
+}() );
